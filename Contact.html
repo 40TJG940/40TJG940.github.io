@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets de Julien Bonnet</title>
+    <title>Me contacter - Julien Bonnet</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
         header {
             background-color: #333;
@@ -24,35 +25,41 @@
             overflow: hidden;
             padding: 20px;
         }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px 0;
-        }
-        .project-item {
-            background-color: #00a8e8;
-            color: #fff;
+        .contact-form {
+            background: #fff;
             padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
+            margin-top: 20px;
+            border-radius: 5px;
         }
-        .project-item:hover {
-            transform: scale(1.05);
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
         }
-        .project-item h3 {
-            margin-top: 0;
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
-        .back-btn {
+        .contact-form button {
             display: inline-block;
             background: #333;
             color: #fff;
             padding: 10px 20px;
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #444;
+        }
+        .contact-info {
             margin-top: 20px;
         }
+        /* Styles pour le menu burger (comme défini précédemment) */
         .burger-btn {
             position: fixed;
             left: 20px;
@@ -98,40 +105,34 @@
 </head>
 <body>
     <header>
-        <h1>Mes Projets</h1>
+        <h1>Me contacter</h1>
     </header>
+
     <div class="container">
-        <div class="project-grid">
-            <div class="project-item">
-                <h3>Minirobots</h3>
-                <p>Programmation et conception de minirobots</p>
-            </div>
-            <div class="project-item">
-                <h3>Grues monte-charge</h3>
-                <p>Conception de grues monte-charge</p>
-            </div>
-            <div class="project-item">
-                <h3>Microcontrôleurs</h3>
-                <p>Projets basés sur des microcontrôleurs</p>
-            </div>
-            <div class="project-item">
-                <h3>Programmation RAM/ROM</h3>
-                <p>Programmation en hexadécimal de RAM et ROM</p>
-            </div>
-            <div class="project-item">
-                <h3>Moteurs synchrones</h3>
-                <p>Montage de moteurs synchrones</p>
-            </div>
-            <div class="project-item">
-                <h3>Tableaux de commandes</h3>
-                <p>Création de tableaux de commandes haute-tension</p>
-            </div>
+        <div class="contact-form">
+            <h2>Envoyez-moi un message</h2>
+            <form action="#" method="POST">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
         </div>
-        <a href="index.html" class="back-btn">Retour à l'accueil</a>
+
+        <div class="contact-info">
+            <h2>Mes coordonnées</h2>
+            <p>Email : julien.bonnet77@outlook.fr</p>
+            <p>Téléphone : 06 78 95 08 74</p>
+            <p>Adresse : 50 Chemins des condamines, Nages et Solorgues, 30114</p>
+        </div>
     </div>
+
     <script src="script.js"></script>
-    
 </body>
-
-
 </html>

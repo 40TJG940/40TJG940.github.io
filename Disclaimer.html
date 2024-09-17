@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - Julien Bonnet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .disclaimer-content {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* Styles pour le menu burger (comme défini précédemment) */
+        .burger-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .burger-menu {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #2c2c2c;
+            transition: 0.3s;
+            z-index: 1000;
+            padding-top: 60px;
+        }
+        .burger-menu.active {
+            left: 0;
+        }
+        .burger-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .burger-menu ul li {
+            padding: 10px 20px;
+        }
+        .burger-menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .burger-menu ul li a:hover {
+            color: #00a8e8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Disclaimer</h1>
+    </header>
+
+    <div class="container">
+        <div class="disclaimer-content">
+            <h2>Disclaimer</h2>
+            <p>Ce disclaimer (Avis de non-responsabilité) s'applique à l'ensemble du contenu de ce site, y compris toutes les pages, articles, et autres publications de l'auteur.</p>
+            <p>En accédant à ce site et en utilisant ses ressources, vous reconnaissez et acceptez que :</p>
+            <p>Les informations fournies sur ce site sont destinées uniquement à des fins éducatives et informatives. En aucun cas, ce site n'encourage ou ne tolère des actions illégales. Vous êtes entièrement responsables de vos actions et des conséquences qui en découlent. L'auteur et l'hébergeur du site déclinent toute responsabilité quant à l'utilisation que vous faites des informations disponibles ici. Aucune demande visant à enfreindre la loi ne sera prise en compte.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
