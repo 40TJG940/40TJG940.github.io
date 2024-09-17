@@ -119,13 +119,13 @@ burgerMenu.appendChild(createElement('div', { class: 'section-title' }, 'BLOG'))
 // Création de la liste de menu
 
 const menuItems = [
-    { text: 'Home', url: '#' },
+    { text: 'Home', url: './index.html' },
     { text: 'À propos', url: './about.html' },
-    { text: 'Archives', url: '#' },
+    { text: 'Archives', url: './in_progress.html' },
     { text: 'Me contacter', url: './Contact.html' },
     { text: 'Disclaimer', url: './Disclaimer.html' },
     { text: 'Projets', url: './Projet_menu.html' },
-    { text: 'Trophées/Certifications', url: '#' }
+    { text: 'SKD', url: './in_progress.html' }
 ];
 
 const menuList = createElement('ul', { class: 'menu-list' });
