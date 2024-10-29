@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Julien Bonnet</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text: #1f2937;
+            --bg: #0a0f1f;
+            --card: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 0% 0%, #4a90e2, transparent 50%),
+                radial-gradient(circle at 100% 0%, #2563eb, transparent 50%),
+                radial-gradient(circle at 50% 100%, #1e40af, transparent 50%);
+            filter: blur(30px);
+            animation: backgroundMove 20s ease infinite;
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1) rotate(3deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        header {
+            background: rgba(37, 99, 235, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            animation: headerAppear 1s ease-out;
+        }
+
+        @keyframes headerAppear {
+            from { 
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: headerGlow 5s infinite;
+        }
+
+        @keyframes headerGlow {
+            0%, 100% { transform: translate(-30%, -30%); }
+            50% { transform: translate(30%, 30%); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            animation: underline 1s ease-out forwards 1s;
+        }
+
+        @keyframes underline {
+            to { width: 100%; }
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: sectionAppear 0.5s ease-out forwards;
+        }
+
+        @keyframes sectionAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            animation: borderSlide 0.5s ease-out forwards;
+        }
+
+        @keyframes borderSlide {
+            to { left: 0; }
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            background: rgba(37, 99, 235, 0.2);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .experience-title {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .formation-item {
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .formation-item:hover {
+            transform: translateX(10px);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .passions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .passion-item {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .passion-item:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: rgba(37, 99, 235, 0.2);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .passion-item::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .passion-item:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        margin-top: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        z-index: -1;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .cta-button:hover::before {
+        opacity: 1;
+    }
+
+    .cta-button::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+        transform: scale(0);
+        transition: transform 0.5s ease;
+    }
+
+    .cta-button:hover::after {
+        transform: scale(1);
+    }
+
+    .cta-button .icon {
+        transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover .icon {
+        transform: translateX(5px);
+    }
+
+    .button-container {
+        text-align: center;
+        margin-top: 3rem;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 1.5s;
+        opacity: 0;
+    }
+
+    .button-container {
+        text-align: center;
+        margin-top: 3rem;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 1.5s;
+        opacity: 0;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .pdf-button {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+
+    .pdf-button::before {
+        background: linear-gradient(135deg, #dc2626, #ef4444);
+    }
+
+    /* Style pour mobile */
+    @media (max-width: 768px) {
+        .button-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cta-button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    /* Animation spéciale pour le bouton PDF */
+    .pdf-button:hover .icon {
+        animation: bounce 0.5s ease infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <div class="header-content">
+            <h1>Julien Bonnet</h1>
+            <p>RECHERCHE ALTERNANCE BACHELOR 3 INFORMATIQUE</p>
+            <div class="contact-info">
+                <div>
+                    <p>📱 06 78 95 08 74</p>
+                    <p>📧 julien.bonnet77@outlook.fr</p>
+                    <p>🌐 https://40tjg940.github.io/</p>
+                </div>
+                <div>
+                    <p>🎂 11/07/1999 (25 ans)</p>
+                    <p>🔗 LinkedIn : Julien Bonnet</p>
+                    <p>🚗 Permis B</p>
+                </div>
+                <div>
+                    <p>🏳️ Nationalité : Française</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Le reste du contenu reste identique, seul le style a été modifié -->
+        <section class="section">
+            <h2>OBJECTIFS PROFESSIONNELS</h2>
+            <p>À la recherche d'opportunités dans le secteur de l'informatique, je souhaite mettre à profit mes compétences en développement, en intelligence artificielle, et en cybersécurité. Disponible immédiatement, je suis motivé à rejoindre une équipe dynamique et à contribuer à des projets innovants, que ce soit en développement, en analyse de données, ou en sécurisation des réseaux.</p>
+        </section>
+
+        <section class="section">
+            <h2>COMPÉTENCES</h2>
+            <div class="skills-grid">
+                <div class="skill-item">C, C++, C#, Java</div>
+                <div class="skill-item">HTML, CSS, JS, PHP</div>
+                <div class="skill-item">SQL, NOSQL</div>
+                <div class="skill-item">Assembly, Python, Golang</div>
+                <div class="skill-item">Angular</div>
+                <div class="skill-item">Visual Studio, VsCode</div>
+                <div class="skill-item">SCILAB, Solidworks</div>
+                <div class="skill-item">Suite Office</div>
+                <div class="skill-item">Windows, Linux, Mac</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
+            <div class="experience-item">
+                <div class="experience-title">Développeur Web - MONTARNAUD HANDBALL CLUB</div>
+                <div class="experience-date">2024 (6 semaines)</div>
+                <ul>
+                    <li>Développement d'un site internet pour l'association</li>
+                    <li>Front/backend</li>
+                    <li>Sécurisation des sockets serveur</li>
+                    <li>Sécurisation des DNS (SPF, DKIM, DMARC)</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-title">AGENT LOGISTIQUE - Plateforme logistique, CHU Nîmes</div>
+                <div class="experience-date">2023 (4 semaines)</div>
+                <ul>
+                    <li>Réapprovisionnement des stocks</li>
+                    <li>Préparation des commandes</li>
+                    <li>Gestion des commandes de flux</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-title">AIDE À DOMICILE PERSONNES ÂGÉES - Martinique</div>
+                <div class="experience-date">2022 (8 semaines)</div>
+                <ul>
+                    <li>Réparation électroménagère</li>
+                    <li>Réparations électriques</li>
+                    <li>Remise aux normes (distribution électrique)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FORMATION</h2>
+            <div class="formation-item">
+                <div class="formation-year">2023 – 2024</div>
+                <p>B2 informatique, Campus Ynov Montpellier (en cours)</p>
+            </div>
+            <div class="formation-item">
+                <div class="formation-year">2021 - 2023</div>
+                <p>L1 Mathématiques-Physique-Informatique, Univ. De Nîmes</p>
+            </div>
+            <div class="formation-item">
+                <div class="formation-year">2019 - 2021</div>
+                <p>BTS-Système numérique, Saint Joseph Pierre Rouge, Montpellier (Obtenu)</p>
+            </div>
+            <div class="formation-item">
+                <div class="formation-year">2018</div>
+                <p>Génie Électrique Informatique et Industriel, IUT de Nîmes (Non obtenu)</p>
+            </div>
+            <div class="formation-item">
+                <div class="formation-year">2017</div>
+                <p>BAC S–SI, Lycée Acajou 2, Martinique</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>PROJETS</h2>
+            <ul>
+                <div class="experience-item">
+                    <li>Minirobots et programmation</li>
+                    <li>Grues monte-charge – Microcontrôleurs</li>
+                    <li>Programmation de RAM et de ROM en hexadécimal</li>
+                    <li>Montage de moteurs synchrones</li>
+                    <li>Tableaux de commandes haute tension</li>
+                </div>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>PASSIONS ET PASSE-TEMPS</h2>
+            <div class="passions-grid">
+                <div class="passion-item">Création et entraînement IA</div>
+                <div class="passion-item">Exploration et optimisation de Windows</div>
+                <div class="passion-item">Analyse et sécurité réseau</div>
+                <div class="passion-item">Modification de pilote graphique/audio</div>
+                <div class="passion-item">Reverse Engineering et carte électronique</div>
+                <div class="passion-item">Modding de Jeu (création de shaders/mod : Java)</div>
+                <div class="passion-item">Amélioration de model IA SD.1/2/3/XL | FLUX</div>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="cv.pdf" class="cta-button pdf-button">
+                Voir CV PDF
+                <span class="icon">📄</span>
+            </a>
+        </div>
+        
+    </div>
+
+    <script>
+        // Animation des sections au défilement
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${entry.target.dataset.delay || 0}s`;
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach((section, index) => {
+            section.dataset.delay = index * 0.2;
+            section.style.animationPlayState = 'paused';
+            observer.observe(section);
+        });
+
+        // Animation subtile du fond
+        document.addEventListener('mousemove', (e) => {
+            const background = document.querySelector('.background');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            background.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
