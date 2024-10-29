@@ -1,0 +1,141 @@
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation de Yolo_Dolphin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        #header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        #title {
+            display: block;
+            margin-top: 20px;
+            font-size: 36pt;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        #description {
+            display: block;
+            margin-top: 10px;
+            font-size: 18pt;
+            font-weight: normal;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        #features {
+            margin-top: 20px;
+        }
+        
+        .feature {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        #limitations {
+            margin-top: 20px;
+        }
+        
+        #limite1 {
+            display: block;
+            font-size: 14pt;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        #limite2 {
+            display: block;
+            font-size: 14pt;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        #footer {
+            clear: both;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Présentation de Yolo_Dolphin</h1>
+    </div>
+    
+    <div id="title">
+        <p>Yolo_Dolphin, votre intelligence artificielle</p>
+    </div>
+    
+    <div id="description">
+        <p>Je suis un assistant IA capable de converser sur divers sujets et d'offrir des informations sur une large gamme de domaines.</p>
+        <p>J'ai été créé pour aider les utilisateurs à trouver rapidement des réponses à leurs questions ou simplement pour discuter avec eux.</p>
+    </div>
+    
+    <div id="features">
+        <h2>Capacités</h2>
+        
+        <div class="feature" style="background-color: #007bff; color: white;">Conversation et dialogue</div>
+        <div class="feature" style="background-color: #007bff; color: white;">Information et recherche</div>
+        <div class="feature" style="background-color: #007bff; color: white;">Traduction et adaptation</div>
+    </div>
+    
+    <div id="limitations">
+        <h2>Limites</h2>
+        
+        <div id="limite1">
+            <p>J'ai accès à une grande quantité d'informations, mais ma connaissance approfondie dans certains domaines peut être limitée.</p>
+        </div>
+        
+        <div id="limite2">
+            <p>Je peux ne pas toujours comprendre les contextes ou les nuances subtiles dans certaines situations.</p>
+        </div>
+    </div>
+    
+    <div id="footer">
+        <p>&copy; 2023 Yolo_Dolphin</p>
+    </div>
+    
+    <script>
+        // Fonction pour afficher le texte de présentation
+        function afficheTexte() {
+            var description = document.getElementById("description");
+            
+            description.innerHTML =
+                "<p>Je suis un assistant IA capable de converser sur divers sujets et d'offrir des informations sur une large gamme de domaines.</p>"+
+                "<p>J'ai été créé pour aider les utilisateurs à trouver rapidement des réponses à leurs questions ou simplement pour discuter avec eux.</p>";
+        }
+        
+        // Appel de la fonction pour afficher le texte
+        afficheTexte();
+    </script>
+</body>
+
+</html>
