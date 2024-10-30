@@ -43,7 +43,7 @@ const style = createElement('style', {}, `
     }
     .jb-burger-menu {
         position: fixed;
-        left: -250px;
+        left: -100%;
         top: 0;
         width: 250px;
         height: 100%;
@@ -213,11 +213,6 @@ function toggleMenu() {
 // Ajout de l'événement pour ouvrir/fermer le menu
 burgerBtn.addEventListener('click', toggleMenu);
 
-// Ouvrir automatiquement le menu au chargement de la page
-window.addEventListener('load', () => {
-    setTimeout(toggleMenu, 100); // Petit délai pour s'assurer que tout est chargé
-});
-
 // Fonction pour gérer la réactivité
 function handleResize() {
     if (window.innerWidth <= 768) {
@@ -232,5 +227,7 @@ function handleResize() {
 // Ajout de l'événement de redimensionnement
 window.addEventListener('resize', handleResize);
 
-// Appel initial pour configurer correctement le menu
-handleResize();
+// Ne plus ouvrir le menu automatiquement au chargement de la page
+// window.addEventListener('load', () => {
+//     setTimeout(toggleMenu, 100); // Petit délai pour s'assurer que tout est chargé
+// });
